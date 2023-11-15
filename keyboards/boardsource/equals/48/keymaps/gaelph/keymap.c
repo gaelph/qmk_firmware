@@ -477,7 +477,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case NM_SPC:
         case CD_ENT:
         case FR_QUO:
-            term = TAPPING_TERM - 100;
+            term = TAPPING_TERM - 50;
             break;
 
         // a, u, s and i require some lagging
@@ -487,7 +487,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case RCTL_U:
         case LALT_S:
         case RALT_I:
-            term = TAPPING_TERM + 200;
+            term = TAPPING_TERM + 100;
             break;
 
         default:
