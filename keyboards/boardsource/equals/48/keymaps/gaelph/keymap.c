@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  FR_Q,    FR_C,    FR_L,    FR_P,    FR_B,   FR_K,   FR_F,    FR_O,    FR_Y,    FR_MINS, KC_BSPC,
   FR_ESC,  LCTL_A,  LALT_S,  LGUI_R,  FR_T,    FR_G,   FR_M,   FR_N,    RGUI_E,  RALT_I,  RCTL_U,  MO(_FRENCH),
   CT_ALT,  FR_Z,    FR_V,    FR_J,    FR_D,    FR_W,   FR_X,   FR_H,    FR_COMM, FR_DOT,  FR_SLSH, CT_ALT,
-  KC_RALT, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, NM_SPC, CD_ENT, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, KC_RALT
+  KC_RALT, KC_LCTL, KC_LALT, FR_LEGR, KC_LSFT, NM_SPC, CD_ENT, KC_RSFT, FR_LEAC, KC_RALT, KC_RCTL, KC_RALT
 ),
 
 [_QWERTY] = LAYOUT_ortho_4x12(
@@ -458,6 +458,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // we trigger the code layer immediately
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     if (keycode == CD_ENT) return true;
+    if (keycode == MO(_FRENCH)) return true;
     return false;
 }
 
