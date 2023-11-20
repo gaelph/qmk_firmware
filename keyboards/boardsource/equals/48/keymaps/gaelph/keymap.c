@@ -487,7 +487,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case RCTL_U:
         case LALT_S:
         case RALT_I:
-            term = TAPPING_TERM + 100;
+            term = TAPPING_TERM + 50;
             break;
 
         default:
