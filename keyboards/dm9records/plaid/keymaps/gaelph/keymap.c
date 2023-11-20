@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // clang-format off
 [_ANNIE] = LAYOUT_plaid_grid(
   KC_TAB,  FR_Q,    FR_C,    FR_L,    FR_P,    FR_B,   FR_K,   FR_F,    FR_O,    FR_Y,    FR_MINS, KC_BSPC,
-  FR_ESC,  LCTL_A,  LALT_S,  LGUI_R,  FR_T,    FR_G,   FR_M,   FR_N,    RGUI_E,  RALT_I,  RCTL_U,  FRENCH,
+  FR_ESC,  LCTL_A,  LALT_S,  LGUI_R,  FR_T,    FR_G,   FR_M,   FR_N,    RGUI_E,  RALT_I,  RCTL_U,  MO(_FRENCH),
   CT_ALT,  FR_Z,    FR_V,    FR_J,    FR_D,    FR_W,   FR_X,   FR_H,    FR_COMM, FR_DOT,  FR_SLSH, CT_ALT,
   KC_RALT, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, NM_SPC, CD_ENT, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, KC_RALT
 ),
@@ -610,6 +610,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // we trigger the code layer immediately
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     if (keycode == CD_ENT) return true;
+    if (keycode == MO(_FRENCH)) return true;
     return false;
 }
 
@@ -629,7 +630,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case NM_SPC:
         case CD_ENT:
         case FR_QUO:
-            term = TAPPING_TERM - 100;
+            term = TAPPING_TERM - 50;
             break;
 
         // a, u, s and i require some lagging
@@ -639,7 +640,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case RCTL_U:
         case LALT_S:
         case RALT_I:
-            term = TAPPING_TERM + 200;
+            term = TAPPING_TERM + 50;
             break;
 
         default:

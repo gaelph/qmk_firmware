@@ -18,7 +18,7 @@
 
 // Unfortunately, some applications drop or misorder fast key events. This is a
 // partial fix to slow down the rate at which macros are sent.
-#define TAP_CODE_DELAY 12
+// #define TAP_CODE_DELAY 12
 
 // Tap-Hold config for Home row mods
 #define TAPPING_TERM 250
@@ -30,6 +30,7 @@
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define COMBO_COUNT 4
+#define COMBO_TERM 40
 
 // This is the default, used for hid, i.e. Keystats
 #define RAW_USAGE_PAGE 0xFF60
