@@ -120,10 +120,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_plaid_grid(
-    QK_BOOT,   LED_1,   LED_2,   MAGIC_TOGGLE_GUI, MAGIC_UNSWAP_GRAVE_ESC, LED_5,   LED_6,   LED_7,   LED_8,   LED_9,   LED_0,   KC_DEL,
-    ANNIE,   KC_F1,   KC_F2,   KC_F3,            KC_F4,                  KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-    QWERTY,  DT_DOWN, KC_BRID, KC_BRIU,          DT_UP,                  DT_PRNT, KC_MUTE, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, _______,
-    _______, _______, _______, _______,          _______,                _______, _______, _______, _______, _______, _______, _______
+    QK_BOOT, LED_1,   LED_2,   LED_3,   LED_4,   LED_5,   LED_6,   LED_7,   LED_8,   LED_9,   LED_0,   _______,
+    ANNIE,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+    QWERTY,  _______, KC_BRID, KC_BRIU, _______, _______, KC_MUTE, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 )
     // clang-format on
 };
