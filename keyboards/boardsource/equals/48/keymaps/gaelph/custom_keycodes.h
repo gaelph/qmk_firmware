@@ -10,7 +10,7 @@ enum plaid_keycodes {
     FRENCH,
     CODE,
     NUMBERS,
-    LED_1,
+    ISRT,
     LED_2,
     LED_3,
     LED_4,
@@ -37,6 +37,7 @@ enum plaid_keycodes {
 // Home Row mods
 // left hand
 #define LCTL_A LCTL_T(FR_A)
+#define LCTL_I LCTL_T(FR_I)
 #define LALT_S LALT_T(FR_S)
 #define LGUI_R LGUI_T(FR_R)
 // qwerty
@@ -44,6 +45,7 @@ enum plaid_keycodes {
 // right hand
 #define RGUI_E RGUI_T(FR_E)
 #define RALT_I RALT_T(FR_I)
+#define RALT_A RALT_T(FR_A)
 #define RCTL_U RCTL_T(FR_U)
 // qwerty
 #define RGUI_K RGUI_T(KC_K)

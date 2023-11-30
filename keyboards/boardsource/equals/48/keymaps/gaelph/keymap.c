@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  FR_Q,    FR_C,    FR_L,    FR_P,    FR_B,   FR_K,   FR_F,    FR_O,    FR_Y,    FR_MINS, KC_BSPC,
   FR_ESC,  LCTL_A,  LALT_S,  LGUI_R,  FR_T,    FR_G,   FR_M,   FR_N,    RGUI_E,  RALT_I,  RCTL_U,  MO(_FRENCH),
   CT_ALT,  FR_Z,    FR_V,    FR_J,    FR_D,    FR_W,   FR_X,   FR_H,    FR_COMM, FR_DOT,  FR_SLSH, CT_ALT,
-  KC_RALT, KC_LCTL, KC_LALT, FR_LEGR, KC_LSFT, NM_SPC, CD_ENT, KC_RSFT, FR_LEAC, KC_RALT, KC_RCTL, KC_RALT
+  KC_RALT, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, NM_SPC, CD_ENT, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, KC_RALT
 ),
 
 [_QWERTY] = LAYOUT_ortho_4x12(
@@ -56,18 +56,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   `  |   œ  |   «  |   ê  |   ù  |   °  |      |   ‘  |   ’  |   –  |   –  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | ___  |   à  |   ’  |   é  |   è  |   ç  |      |   @  |   €  |   ˆ  |   @  |  €   |
+ * | ___  |   à  |   ’  |   é  |   è  |   ç  |      |   :  |   ;  |   …  |   @  |  $   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | ___  |   æ  |   »  |   ¨  |   ˆ  |   €  |   +  |   -  |   #  |   …  |   \  | ___  |
+ * | ___  |   æ  |   »  |   ¨  |   ˆ  |   €  |   +  |   -  |   #  |   !  |   ?  | ___  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | ___  | ___  | ___  | ____ | ____ | ____ | ____ | ____ | ____ | ____ | ____ | ____ |
+ * | ___  | ___  | ___  | ____ | ____ | NBSP | ____ | ____ | ____ | ____ | ____ | ____ |
  * `-----------------------------------------------------------------------------------'
  */
 [_FRENCH] = LAYOUT_ortho_4x12(
-  FR_GRV,  FR_OE,   FR_LDAQ, FR_ECIR, FR_LUGR, FR_DEG,  XXXXXXX, FR_LSQU, FR_LRQU, XXXXXXX, FR_NDSH, _______,
-  _______, FR_LAGR, FR_LRQU, FR_LEAC, FR_LEGR, FR_LCCE, XXXXXXX, FR_AT,   FR_EURO, FR_CIRC, FR_AT,   FR_DLR,
-  _______, FR_AE,   FR_RDAQ, FR_DIAE, FR_CIRC, FR_EURO, FR_PLUS, FR_MINS, FR_HASH, FR_ELLP, FR_BSLS, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  FR_GRV,  FR_OE,   FR_LDAQ, FR_ECIR, FR_LUGR, FR_DEG,         XXXXXXX, FR_LSQU, FR_LRQU, XXXXXXX, FR_NDSH, _______,
+  _______, FR_LAGR, FR_LRQU, FR_LEAC, FR_LEGR, FR_LCCE,        XXXXXXX, FR_COLN, FR_SCLN, FR_ELLP, FR_AT,   FR_DLR,
+  _______, FR_AE,   FR_RDAQ, FR_DIAE, FR_CIRC, FR_EURO,        FR_PLUS, FR_MINS, FR_HASH, FR_EXLM, FR_QUES, _______,
+  _______, _______, _______, _______, _______, RALT(KC_SPACE), _______, _______, _______, _______, _______, _______
 ),
 
 /* Code Layer
@@ -123,8 +123,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_BOOT, RGB_TOG, RGB_MOD, RGB_RMOD, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______,
     ANNIE,   KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RGB_SPD,
     QWERTY,  DT_DOWN, KC_BRID, KC_BRIU,  DT_UP,   DT_PRNT, KC_MUTE, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, RGB_SPI,
-    _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______
+    ISRT,    _______, _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______
 )
+,
+[_ISRT] = LAYOUT_ortho_4x12(
+  KC_TAB,  FR_Y,    FR_C,    FR_L,    FR_M,    FR_X,   FR_Z,   FR_F,    FR_O,    FR_COMM, FR_MINS, KC_BSPC,
+  FR_ESC,  LCTL_I,  LALT_S,  LGUI_R,  FR_T,    FR_G,   FR_P,   FR_N,    RGUI_E,  RALT_A,  RCTL_U,  MO(_FRENCH),
+  CT_ALT,  FR_Q,    FR_V,    FR_J,    FR_D,    FR_W,   FR_B,   FR_H,    FR_DOT, FR_SLSH,  FR_K, CT_ALT,
+  KC_RALT, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, NM_SPC, CD_ENT, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, KC_RALT
+),
+
     // clang-format on
 };
 
@@ -142,6 +150,7 @@ void keyboard_post_init_user(void) {
     debug_enable   = true;
     debug_matrix   = true;
     debug_keyboard = true;
+    set_single_persistent_default_layer(_ANNIE);
 }
 
 /**
@@ -149,9 +158,6 @@ void keyboard_post_init_user(void) {
  * both space and enter pressed
  */
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // #ifdef KEYSTAT_ENABLE
-    //     layer_state_set_hid(state);
-    // #endif
     return update_tri_layer_state(state, _CODE, _NUMBERS, _ADJUST);
 }
 
@@ -189,6 +195,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 print("mode just switched to qwerty and this is a huge string\n");
                 set_single_persistent_default_layer(_QWERTY);
+            }
+            return false;
+            break;
+
+        case ISRT:
+            if (record->event.pressed) {
+                print("mode just switched to qwerty and this is a huge string\n");
+                set_single_persistent_default_layer(_ISRT);
             }
             return false;
             break;
