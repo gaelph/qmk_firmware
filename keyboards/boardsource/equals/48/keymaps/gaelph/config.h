@@ -20,6 +20,9 @@
 // partial fix to slow down the rate at which macros are sent.
 // #define TAP_CODE_DELAY 12
 
+// Disable quick tap term so that numbers can be typed rapidely
+#define QUICK_TAP_TERM 0
+
 // Tap-Hold config for Home row mods
 #define TAPPING_TERM 300
 // #define IGNORE_MOD_TAP_INTERRUPT // That should be the default, in a future version?
@@ -30,7 +33,7 @@
 #define PERMISSIVE_HOLD_PER_KEY
 
 #define COMBO_COUNT 4
-#define COMBO_TERM 40
+#define COMBO_TERM 25
 
 // This is the default, used for hid, i.e. Keystats
 #define RAW_USAGE_PAGE 0xFF60
