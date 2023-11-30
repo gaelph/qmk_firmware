@@ -9,6 +9,8 @@ CONSOLE_ENABLE = yes
 MOUSEKEY_ENABLE = no
 # Media keys such as vol+, vol- brightness and so on
 EXTRAKEY_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
+# TAP_DANCE_ENABLE = yes
 
 # keystats
 SRC += features/hid.c

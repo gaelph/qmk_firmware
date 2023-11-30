@@ -133,9 +133,7 @@ const size_t N_LAYERS = sizeof(keymaps) / (MATRIX_ROWS * MATRIX_COLS * sizeof(ui
 
 // This is used to know if modifiers are pressed
 // when we handle custom shift behaviors
-const uint16_t modifiers[] = {
-    KC_LCTL, KC_RCTL, KC_LALT, KC_RALT, KC_LSFT, KC_RSFT, KC_LGUI, KC_RGUI, CODE, NUMBERS, FRENCH,
-};
+const uint16_t modifiers[] = {KC_LCTL, KC_RCTL, KC_LALT, KC_RALT, KC_LSFT, KC_RSFT, KC_LGUI, KC_RGUI, CODE, NUMBERS, FRENCH, MO(_FRENCH)};
 
 /**
  * Optionally enable debugging on start
@@ -464,31 +462,40 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 // Never allow permissive holds
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case NM_SPC:
+            return true;
+    }
     return false;
 }
 
 // Tapping term ajustements depending on which tap-mod
 // it pressed
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    uint16_t term = TAPPING_TERM;
+    uint16_t term = g_tapping_term;
 
     switch (keycode) {
-        // escape, space and enter require a swift mod change
+        // escape layer require a swift mod change
         case FR_ESC:
+            term = g_tapping_term - 80;
+            break;
+
+        // space/num, enter/code require an even swifter one
         case NM_SPC:
         case CD_ENT:
-        case FR_QUO:
-            term = TAPPING_TERM - 50;
+            term = g_tapping_term - 100;
             break;
 
         // a, u, s and i require some lagging
         // because the pinky and ring fingers
         // can lag a bit
+        // Same goes for the french MO layer
         case LCTL_A:
         case RCTL_U:
         case LALT_S:
         case RALT_I:
-            term = TAPPING_TERM + 50;
+        case MO(_FRENCH):
+            term = g_tapping_term + 50;
             break;
 
         default:
